@@ -1,0 +1,32 @@
+{
+  "name": "gulp-dependency-visualizer",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/1000ch/gulp-dependency-visualizer.git"
+  },
+  "author": {
+    "name": "1000ch",
+    "email": "shogo.sensui@gmail.com",
+    "web": "http://github.com/1000ch"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/1000ch/gulp-dependency-visualizer/issues"
+  },
+  "homepage": "https://github.com/1000ch/gulp-dependency-visualizer",
+  "dependencies": {
+    "gulp-util": "^2.2.20",
+    "js-dependency-visualizer": "^0.1.5",
+    "through2": "^0.5.1"
+  },
+  "devDependencies": {
+    "mocha": "^1.20.1",
+    "rimraf": "^2.2.8"
+  }
+}
