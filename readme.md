@@ -31,8 +31,29 @@ gulp.task('default', ['visualizer']);
 
 You have to add dependency definition to target JavaScript files such as following.
 
-```
+### `bar.js`
+
+```js
 //@depend baz.js
+function Bar() {
+  this.message = 'bar';
+}
+
+Bar.prototype.echo = function () {
+  console.log(this.message);
+};
+```
+
+### `baz.js`
+
+```js
+function Baz() {
+  this.message = 'baz';
+}
+
+Baz.prototype.echo = function () {
+  console.log(this.message);
+};
 ```
 
 ## License
