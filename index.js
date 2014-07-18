@@ -35,19 +35,25 @@ module.exports = function (options) {
       return callback();
     }
 
+    if (!fs.existsSync(destPath)) {
+      fs.mkdirSync(destPath);
+    }
+
     var visualizer = new DependencyVisualizer({
       files: paths
     });
 
     var dependencies = visualizer.analyze().result();
 
-    if (!fs.existsSync(destPath)) {
-      fs.mkdirSync(destPath);
-    }
+    fs.writeFileSync(destPath + '/dependencyData.js', dependencies, {
+      encoding: 'utf8'
+    });
 
     fs.readdirSync(assetPath).forEach(function (asset) {
       var buffer = fs.readFileSync(path.resolve(assetPath, asset));
-      fs.writeFileSync(destPath + '/' + asset, buffer, {encoding: 'utf8'});
+      fs.writeFileSync(destPath + '/' + asset, buffer, {
+        encoding: 'utf8'
+      });
     });
   });
 };

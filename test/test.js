@@ -10,7 +10,7 @@ var DependencyVisualizer = require('../index');
 describe('gulp-dependency-visualizer', function () {
 
   before(function () {
-    rimraf.sync('visualize');
+    rimraf.sync('test/visualize');
   });
 
   it('should visualize dependencies', function (callback) {
@@ -20,14 +20,22 @@ describe('gulp-dependency-visualizer', function () {
     stream.on('data', function () {});
 
     stream.on('end', function (error) {
-      assert(fs.existsSync('visualize'));
+      assert(fs.existsSync('test/visualize'));
       callback();
     });
 
-    stream.write(new gutil.File({
-      path: 'index.js',
-      contents: new Buffer('')
-    }));
+    var fixturePath = 'test/fixtures'; 
+    fs.readdirSync(fixturePath).forEach(function (fixture) {
+
+      var p = path.resolve(fixturePath, fixture);
+      var buffer = fs.readFileSync(p);
+
+      stream.write(new gutil.File({
+        path: p,
+        contents: buffer
+      }));
+
+    });
 
     stream.end();
   });
