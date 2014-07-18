@@ -10,7 +10,6 @@ module.exports = function (options) {
   
   var options = options || {};
   var paths = [];
-  var assetPath = path.resolve(__dirname, 'node_modules/js-dependency-visualizer/asset');
   var destPath = options.destPath || 'visualize';
 
   return through.obj(function (file, encode, callback) {
