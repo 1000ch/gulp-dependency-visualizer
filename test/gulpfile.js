@@ -1,9 +1,9 @@
 var gulp = require('gulp');
 var DependencyVisualizer = require('../');
 
-gulp.task('DependencyVisualizer', function () {
+gulp.task('visualizer', function () {
   gulp.src('./fixtures/*.js')
     .pipe(DependencyVisualizer());
 });
 
-gulp.task('default', ['DependencyVisualizer']);
+gulp.task('default', ['visualizer']);

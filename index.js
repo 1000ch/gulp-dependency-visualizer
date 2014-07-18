@@ -10,6 +10,8 @@ module.exports = function (options) {
   
   var options = options || {};
   var paths = [];
+  var assetPath = path.resolve(__dirname, 'node_modules/js-dependency-visualizer/asset');
+  var destPath = options.destPath || 'visualize';
 
   return through.obj(function (file, encode, callback) {
 
@@ -17,12 +19,12 @@ module.exports = function (options) {
       this.push(file);
       return callback();
     }
-    
+
     if (file.isStream()) {
       this.emit('error', new gutil.PluginError('gulp-dependency-visualizer', 'Streaming not supported'));
       return callback();
     }
-    
+
     paths.push(file.path);
     this.push(file);
     callback();
@@ -33,10 +35,19 @@ module.exports = function (options) {
       return callback();
     }
 
-    var dv = new DependencyVisualizer({
+    var visualizer = new DependencyVisualizer({
       files: paths
     });
-    
-    dv.analyze();
+
+    var dependencies = visualizer.analyze().result();
+
+    if (!fs.existsSync(destPath)) {
+      fs.mkdirSync(destPath);
+    }
+
+    fs.readdirSync(assetPath).forEach(function (asset) {
+      var buffer = fs.readFileSync(path.resolve(assetPath, asset));
+      fs.writeFileSync(destPath + '/' + asset, buffer, {encoding: 'utf8'});
+    });
   });
 };

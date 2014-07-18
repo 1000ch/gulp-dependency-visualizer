@@ -1,10 +1,9 @@
 {
   "name": "gulp-dependency-visualizer",
   "version": "0.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Gulp plugin for js-dependency-visualizer",
   "scripts": {
-    "test": "mocha test/test.js"
+    "test": "mocha --timeout=5s --reporter=spec test/test.js"
   },
   "repository": {
     "type": "git",
@@ -22,7 +21,7 @@
   "homepage": "https://github.com/1000ch/gulp-dependency-visualizer",
   "dependencies": {
     "gulp-util": "^2.2.20",
-    "js-dependency-visualizer": "^0.1.5",
+    "js-dependency-visualizer": "^0.1.6",
     "through2": "^0.5.1"
   },
   "devDependencies": {
