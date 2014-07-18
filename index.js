@@ -49,11 +49,6 @@ module.exports = function (options) {
       encoding: 'utf8'
     });
 
-    fs.readdirSync(assetPath).forEach(function (asset) {
-      var buffer = fs.readFileSync(path.resolve(assetPath, asset));
-      fs.writeFileSync(destPath + '/' + asset, buffer, {
-        encoding: 'utf8'
-      });
-    });
+    visualizer.copyAssets(destPath);
   });
 };
