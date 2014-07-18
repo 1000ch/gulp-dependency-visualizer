@@ -56,6 +56,8 @@ Baz.prototype.echo = function () {
 };
 ```
 
+To see detail, check https://github.com/ysugimoto/js-dependency-visualizer .
+
 ## License
 
 MIT
