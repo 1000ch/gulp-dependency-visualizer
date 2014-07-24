@@ -18,7 +18,7 @@ describe('gulp-dependency-visualizer', function () {
     var stream = DependencyVisualizer();
 
     stream.on('data', function (chunk) {
-      console.log(chunk);
+      //console.log(chunk);
     });
 
     var fixturePath = 'test/fixtures'; 
