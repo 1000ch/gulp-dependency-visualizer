@@ -20,12 +20,12 @@
   },
   "homepage": "https://github.com/1000ch/gulp-dependency-visualizer",
   "dependencies": {
-    "gulp-util": "^3.0.4",
+    "gulp-util": "^3.0.6",
     "js-dependency-visualizer": "^0.1.7",
-    "through2": "^0.6.3"
+    "through2": "^2.0.0"
   },
   "devDependencies": {
-    "mocha": "^2.1.0",
-    "rimraf": "^2.2.8"
+    "mocha": "^2.2.5",
+    "rimraf": "^2.4.1"
   }
 }
