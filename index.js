@@ -7,13 +7,11 @@ var gutil = require('gulp-util');
 var DependencyVisualizer = require('js-dependency-visualizer');
 
 module.exports = function (options) {
-  
   var options = options || {};
   var paths = [];
   var destPath = options.destPath || 'visualize';
 
   return through.obj(function (file, encode, callback) {
-
     if (file.isNull()) {
       this.push(file);
       return callback();
@@ -27,9 +25,7 @@ module.exports = function (options) {
     paths.push(file.path);
     this.push(file);
     callback();
-
   }, function (callback) {
-
     if (paths.length === 0) {
       return callback();
     }
@@ -44,10 +40,13 @@ module.exports = function (options) {
 
     var dependencies = visualizer.analyze().result();
 
-    fs.writeFileSync(destPath + '/dependencyData.js', dependencies, {
-      encoding: 'utf8'
+    fs.writeFile(destPath + '/dependencyData.js', dependencies, function (error) {
+      if (error) {
+        callback(error);
+      } else {
+        visualizer.copyAssets(destPath);
+        callback();
+      }
     });
-
-    visualizer.copyAssets(destPath);
   });
 };
