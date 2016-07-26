@@ -1,7 +1,5 @@
 # [gulp-dependency-visualizer](https://www.npmjs.org/package/gulp-dependency-visualizer)
 
-## About
-
 [![Build Status](https://travis-ci.org/1000ch/gulp-dependency-visualizer.svg?branch=master)](https://travis-ci.org/1000ch/gulp-dependency-visualizer)
 [![NPM version](https://badge.fury.io/js/gulp-dependency-visualizer.svg)](http://badge.fury.io/js/gulp-dependency-visualizer)
 [![Dependency Status](https://david-dm.org/1000ch/gulp-dependency-visualizer.svg)](https://david-dm.org/1000ch/gulp-dependency-visualizer)
